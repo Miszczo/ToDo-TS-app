@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+}
+
+.main-wrapper {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+}
+
+.navigation-wrapper {
+  width: 250px;
+  margin: 50px 0 0 50px;
+}
+
+.navigation-wrapper ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.navigation-wrapper ul li {
+  padding: 0 0 10px 0;
+}
+
+.form-wrapper {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  margin: 55px auto 0 auto;
+}
+
+.form-wrapper label,
+.form-wrapper input,
+.form-wrapper textarea {
+  display: block;
+  margin: 0.5rem 0;
+}
+
+.form-wrapper label {
+  font-weight: bold;
+}
+
+.form-wrapper input,
+.form-wrapper textarea {
+  font: inherit;
+  padding: 0.2rem 0.4rem;
+  width: 100%;
+  max-width: 30rem;
+  border: 1px solid #ccc;
+}
+
+.form-wrapper input:focus,
+.form-wrapper textarea:focus {
+  outline: none;
+  background: #fff5f9;
+}
+
+.form-wrapper button {
+  font: inherit;
+  background: #ff0062;
+  border: 1px solid #ff0062;
+  cursor: pointer;
+  color: white;
+  padding: 0.75rem 1rem;
+}
+
+.form-wrapper button:focus {
+  outline: none;
+}
+
+.form-wrapper button:hover,
+.form-wrapper button:active {
+  background: #a80041;
+  border-color: #a80041;
+}
+
+.form-control {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+}
+
+.tasks-render {
+  width: 600px;
+  border: 1px #acacac solid;
+  margin: 65px 50px 0 0;
+}
+/*# sourceMappingURL=style.css.map */
