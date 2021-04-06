@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Daily To Do app</title>
   <link rel="stylesheet" href="css/style.css">
-  <script src="dist/script.js"></script>
+  <script src="dist/app.js" defer></script>
 </head>
 <body>
   <div class="main-wrapper">
@@ -34,7 +34,7 @@
           <label for="start">Task date:</label>
           <input type="date" id="date" name="trip-start" value="2021-04-06" min="2021-01-01" max="2021-12-31">
         </div>
-        <button type="submit">ADD TASK</button>
+        <button id="submit-btn" class="form__submit-button" type="submit">ADD TASK</button>
       </form>
     </div>
     <div class="tasks-render"></div>
