@@ -1,5 +1,7 @@
-import { CreateTaskObject } from "./CreateTaskObject.js";
-import { RenderTasks } from "./RenderTasks.js";
+import { newTaskObject } from "./CreateTaskObject.js";
+// import {newInputValues} from "./GetInputValues.js";
+// import { RenderTasks } from "./RenderTasks.js";
 
-new CreateTaskObject();
-new RenderTasks();
+
+newTaskObject.mergeDataToObject();
+// new RenderTasks();

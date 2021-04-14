@@ -1,29 +1,20 @@
+import { GetInputValues, newValues } from "./GetInputValues.js";
+
 export interface ObjectWithData {
   taskName: string;
   taskDescription: string;
-  taskDate: string;
+  taskDate: string[];
 }
 
-export class CreateTaskObject {
+export class CreateTaskObject extends GetInputValues {
   submitButton: HTMLInputElement;
-  taskNameInput: HTMLInputElement;
-  descriptionInput: HTMLInputElement;
-  datePickerInput: HTMLInputElement;
-  taskData: object[] = [];
+  private taskData: object[] = [];
 
   constructor() {
+    super();
     this.submitButton = document.getElementById(
       "submit-btn"
     )! as HTMLInputElement;
-    this.taskNameInput = document.getElementById("title")! as HTMLInputElement;
-    this.descriptionInput = document.getElementById(
-      "description"
-    )! as HTMLInputElement;
-    this.datePickerInput = document.getElementById("date")! as HTMLInputElement;
-
-    // console.log(this.datePickerInput.value);
-    this.mergeDataToObject();
-    console.log(this.taskData);
   }
 
   mergeDataToObject() {
@@ -31,6 +22,8 @@ export class CreateTaskObject {
       event.preventDefault();
 
       let dataObject: ObjectWithData;
+      // dataObject = arrayWithInputsData;
+      
       if (
         this.datePickerInput.value === "" ||
         this.taskNameInput.value === "" ||
@@ -42,12 +35,20 @@ export class CreateTaskObject {
         dataObject = {
           taskName: this.taskNameInput.value,
           taskDescription: this.descriptionInput.value,
-          taskDate: this.datePickerInput.value,
+          taskDate: newValues.inputsValues
         };
+
         this.taskData.push(dataObject);
-        console.log("done!");
-        
+
+        console.log("added!");
+        console.log(this.taskData);
+        console.log(...newValues.inputsValues);
       }
+      // console.log(dataObject);
     });
+    
   }
+  
 }
+
+export const newTaskObject = new CreateTaskObject();
