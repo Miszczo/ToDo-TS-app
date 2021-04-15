@@ -7,8 +7,7 @@ export interface ObjectWithData {
 export interface CreateTaskObjectInterface {
   submitButton: HTMLInputElement;
   readonly taskData: object[];
-  renderContainer: HTMLDivElement;
-
+  
   pushDataObjectToArray(): void;
 }
 
@@ -18,4 +17,10 @@ export interface GetInputValuesInterface {
   descriptionInput: HTMLInputElement;
 
   inputsValues: {};
+}
+
+export interface RenderNewDivInterface {
+  renderContainer: HTMLDivElement;
+
+  createNewDiv(): void;
 }

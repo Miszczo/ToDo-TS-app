@@ -1,5 +1,6 @@
 import { GetInputValues, newValues } from "./GetInputValues.js";
 import { CreateTaskObjectInterface } from "./interfaces.js";
+import { RenderNewDiv } from "./RenderNewDiv.js"
 
 export class CreateTaskObject
   extends GetInputValues
@@ -35,12 +36,8 @@ export class CreateTaskObject
         dataArray.push(dataObject);
         console.log(typeof dataArray);
         console.log("taskData", dataArray);
-
-        const newDataDiv = document.createElement("div");
-        newDataDiv.classList.add("data-div");
-        this.renderContainer.appendChild(newDataDiv);
-
-        this.renderContainer.innerHTML += `task: ${dataObject.taskName}, description: ${dataObject.taskDescription}, deadline: ${dataObject.taskDate} `;
+        const newDiv = new RenderNewDiv();
+        newDiv.createNewDiv();
       }
     });
   }
