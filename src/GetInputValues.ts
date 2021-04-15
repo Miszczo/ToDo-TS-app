@@ -1,10 +1,18 @@
-export interface ObjectWithData {
+interface ObjectWithData {
   taskName: string;
   taskDescription: string;
   taskDate: string;
 }
 
-export class GetInputValues {
+interface GetInputValuesInterface {
+  datePickerInput: HTMLInputElement;
+  taskNameInput: HTMLInputElement;
+  descriptionInput: HTMLInputElement;
+
+  inputsValues: {};
+}
+
+export class GetInputValues implements GetInputValuesInterface {
   datePickerInput: HTMLInputElement;
   taskNameInput: HTMLInputElement;
   descriptionInput: HTMLInputElement;
