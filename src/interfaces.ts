@@ -7,7 +7,7 @@ export interface ObjectWithData {
 export interface CreateTaskObjectInterface {
   submitButton: HTMLInputElement;
   readonly taskData: object[];
-  
+
   pushDataObjectToArray(): void;
 }
 

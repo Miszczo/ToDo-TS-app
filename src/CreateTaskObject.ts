@@ -1,6 +1,6 @@
 import { GetInputValues, newValues } from "./GetInputValues.js";
 import { CreateTaskObjectInterface } from "./interfaces.js";
-import { RenderNewDiv } from "./RenderNewDiv.js"
+import { RenderNewDiv } from "./RenderNewDiv.js";
 
 export class CreateTaskObject
   extends GetInputValues
@@ -34,8 +34,6 @@ export class CreateTaskObject
       } else {
         const dataObject = newValues.inputsValues;
         dataArray.push(dataObject);
-        console.log(typeof dataArray);
-        console.log("taskData", dataArray);
         const newDiv = new RenderNewDiv();
         newDiv.createNewDiv();
       }
