@@ -1,16 +1,4 @@
-interface ObjectWithData {
-  taskName: string;
-  taskDescription: string;
-  taskDate: string;
-}
-
-interface GetInputValuesInterface {
-  datePickerInput: HTMLInputElement;
-  taskNameInput: HTMLInputElement;
-  descriptionInput: HTMLInputElement;
-
-  inputsValues: {};
-}
+import { ObjectWithData, GetInputValuesInterface } from "./interfaces.js";
 
 export class GetInputValues implements GetInputValuesInterface {
   datePickerInput: HTMLInputElement;
@@ -28,11 +16,11 @@ export class GetInputValues implements GetInputValuesInterface {
   }
 
   constructor() {
-    this.datePickerInput = document.getElementById("date")! as HTMLInputElement;
     this.taskNameInput = document.getElementById("title")! as HTMLInputElement;
     this.descriptionInput = document.getElementById(
       "description"
     )! as HTMLInputElement;
+    this.datePickerInput = document.getElementById("date")! as HTMLInputElement;
   }
 }
 

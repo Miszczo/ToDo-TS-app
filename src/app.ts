@@ -3,5 +3,5 @@ import { newTaskObject } from "./CreateTaskObject.js";
 // import { RenderTasks } from "./RenderTasks.js";
 
 
-newTaskObject.mergeDataToObject();
+newTaskObject.pushDataObjectToArray();
 // new RenderTasks();
