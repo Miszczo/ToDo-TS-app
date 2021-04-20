@@ -1,5 +1,6 @@
 import { GetInputValues } from "./GetInputValues.js";
 import { RenderNewDivInterface } from "./interfaces.js";
+import { DeleteTask } from "./DeleteTask.js";
 
 export class RenderNewDiv
   extends GetInputValues
@@ -18,8 +19,6 @@ export class RenderNewDiv
   }
   createNewDiv() {
     const dataObject = new GetInputValues().inputsValues;
-   
-
     this.submitButton.addEventListener("click", (event) => {
       event.preventDefault();
       if (
@@ -32,17 +31,18 @@ export class RenderNewDiv
       } else {
         const newDataDiv = document.createElement("div");
         newDataDiv.classList.add("data-div");
-        newDataDiv.id = `number-${this.renderContainer.childElementCount+1}`;
+        newDataDiv.id = `number-${this.renderContainer.childElementCount + 1}`;
         this.renderContainer.appendChild(newDataDiv);
         newDataDiv.innerHTML += `${this.renderContainer.childElementCount}
-        <span class="task-title">task:</span> <p>${dataObject.taskName}</p>
-        <span class="task-title">description:</span> <p>${dataObject.taskDescription}</p>
-        <span class="task-title">deadline:</span> <p>${dataObject.taskDate}</p>
-        <a href="#" class="tasks-icons edit-button"><i class="fas fa-pencil-alt"></i></a> <a href="#" class="tasks-icons"><i class="fas fa-trash-alt delete-button"></i></a>`;
+          <span class="task-title">task:</span> <p>${dataObject.taskName}</p>
+          <span class="task-title">description:</span> <p>${dataObject.taskDescription}</p>
+          <span class="task-title">deadline:</span> <p>${dataObject.taskDate}</p>
+          <a href="#" class="tasks-icons edit-button"><i class="fas fa-pencil-alt"></i></a> <a href="#" class="tasks-icons"><i id="try" class="fas fa-trash-alt delete-button"></i></a>`;
         console.log(this.renderContainer.childElementCount);
+        new DeleteTask();
+        
       }
     });
   }
 }
-
 export const newTask = new RenderNewDiv();
