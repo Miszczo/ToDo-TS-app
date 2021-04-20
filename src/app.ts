@@ -1,2 +1,3 @@
-import { newTaskObject } from "./CreateTaskObject.js";
-newTaskObject.pushDataObjectToArray();
+import { newTask } from "./RenderNewDiv.js";
+
+newTask.createNewDiv();

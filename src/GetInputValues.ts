@@ -23,5 +23,3 @@ export class GetInputValues implements GetInputValuesInterface {
     this.datePickerInput = document.getElementById("date")! as HTMLInputElement;
   }
 }
-
-export const newValues = new GetInputValues();

@@ -2,11 +2,12 @@ export interface ObjectWithData {
   taskName: string;
   taskDescription: string;
   taskDate: string;
+  [key: string]: string;
 }
 
 export interface CreateTaskObjectInterface {
   submitButton: HTMLInputElement;
-  readonly taskData: object[];
+  // readonly taskData: object[];
 
   pushDataObjectToArray(): void;
 }
@@ -21,6 +22,7 @@ export interface GetInputValuesInterface {
 
 export interface RenderNewDivInterface {
   renderContainer: HTMLDivElement;
+  submitButton: HTMLInputElement;
 
   createNewDiv(): void;
 }

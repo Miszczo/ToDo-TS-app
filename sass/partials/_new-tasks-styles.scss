@@ -1,0 +1,25 @@
+.data-div {
+  overflow-wrap: break-word;
+  margin: 15px 0 15px 10px;
+}
+
+.data-div p {
+  margin: 6px 6px 20px 10px;
+  padding: 0;
+  overflow-wrap: break-word;
+}
+
+.task-title {
+  font-weight: bold;
+}
+
+.tasks-icons {
+  color: black;
+  & :visited {
+    color: black;
+  }
+  & :active {
+    color: #ff0062;
+  }
+  margin: 15px 10px 5px 0;
+}
