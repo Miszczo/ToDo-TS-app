@@ -1,4 +1,8 @@
-import { newTask } from "./RenderNewDiv.js";
+import { RenderNewDiv } from "./RenderNewDiv.js";
 
+const submitButton = document.getElementById("submit-btn")! as HTMLInputElement;
 
-newTask.createNewDiv();
+submitButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  new RenderNewDiv().checkIfTheFieldsAreFilled();
+});

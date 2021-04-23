@@ -16,5 +16,7 @@ export interface RenderNewDivInterface {
   renderContainer: HTMLDivElement;
   submitButton: HTMLInputElement;
 
-  createNewDiv(): void;
+  checkIfTheFieldsAreFilled(): void;
+  createDiv(): void;
+  fillDivWithTaskData(): void;
 }
