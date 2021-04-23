@@ -4,19 +4,18 @@ export class DeleteTask {
   deleteButton: HTMLElement;
 
   constructor() {
-    this.deleteButton = document.querySelector(
+    this.deleteButton = (document.querySelectorAll(
       ".delete-button"
-    ) as HTMLElement;
-
-    this.deleteSelectedTask();
+    )! as unknown) as HTMLElement;
+    this.taskRemove();    
   }
 
-  deleteSelectedTask() {
-    if(this.deleteButton){
-      this.deleteButton.addEventListener("click", () => {
-        console.log("hej hej klik");
-      });
-    } 
+  taskRemove() {
+    let deleteButtonList = this.deleteButton;
+    console.log("list", deleteButtonList);
+
+    for(let btn of [deleteButtonList]) {
+      console.log("button", btn);
+    }
   }
 }
-export const newDelete = new DeleteTask();
