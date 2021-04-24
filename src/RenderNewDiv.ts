@@ -1,10 +1,12 @@
 import { GetInputValues } from "./GetInputValues.js";
 import { RenderNewDivInterface } from "./interfaces.js";
-// import { DeleteTask } from "./DeleteTask.js";
 
-export class RenderNewDiv extends GetInputValues implements RenderNewDivInterface {
+export class RenderNewDiv
+  extends GetInputValues
+  implements RenderNewDivInterface {
   renderContainer: HTMLDivElement;
   submitButton: HTMLInputElement;
+  // deleteButton: HTMLElement;
   newDataDiv: HTMLDivElement = document.createElement("div") as HTMLDivElement;
 
   constructor() {
@@ -16,6 +18,9 @@ export class RenderNewDiv extends GetInputValues implements RenderNewDivInterfac
     this.submitButton = document.getElementById(
       "submit-btn"
     )! as HTMLInputElement;
+    // this.deleteButton = (this.renderContainer.querySelectorAll(
+    //   ".delete-button"
+    // )! as unknown) as HTMLElement;
   }
 
   checkIfTheFieldsAreFilled() {
@@ -45,5 +50,16 @@ export class RenderNewDiv extends GetInputValues implements RenderNewDivInterfac
           <span class="task-title">description:</span> <p>${dataObject.inputsValues.taskDescription}</p>
           <span class="task-title">deadline:</span> <p>${dataObject.inputsValues.taskDate}</p>
           <a href="#" class="tasks-icons edit-button"><i class="fas fa-pencil-alt"></i></a> <a href="#" class="tasks-icons"><i id="delete-button" class="fas fa-trash-alt delete-button"></i></a>`;
+    this.deleteTask();
+  }
+
+  deleteTask() {
+    const deleteButton: any = document.querySelectorAll(".delete-button");
+    for (let i = 0; i < deleteButton.length; i++) {
+      deleteButton[i].addEventListener("click", (e: any) => {
+        console.log("deleted");
+        e.currentTarget.parentNode.parentNode.remove();
+      });
+    }
   }
 }

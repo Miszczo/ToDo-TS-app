@@ -19,4 +19,5 @@ export interface RenderNewDivInterface {
   checkIfTheFieldsAreFilled(): void;
   createDiv(): void;
   fillDivWithTaskData(): void;
+  deleteTask(): void;
 }
