@@ -18,9 +18,6 @@ export class RenderNewDiv
     this.submitButton = document.getElementById(
       "submit-btn"
     )! as HTMLInputElement;
-    // this.deleteButton = (this.renderContainer.querySelectorAll(
-    //   ".delete-button"
-    // )! as unknown) as HTMLElement;
   }
 
   checkIfTheFieldsAreFilled() {
@@ -45,7 +42,7 @@ export class RenderNewDiv
 
   fillDivWithTaskData() {
     const dataObject = new GetInputValues();
-    this.newDataDiv.innerHTML += `${this.renderContainer.childElementCount}
+    this.newDataDiv.innerHTML += `<p class="task-number">${this.renderContainer.childElementCount}</p>
           <span class="task-title">task:</span> <p>${dataObject.inputsValues.taskName}</p>
           <span class="task-title">description:</span> <p>${dataObject.inputsValues.taskDescription}</p>
           <span class="task-title">deadline:</span> <p>${dataObject.inputsValues.taskDate}</p>
@@ -54,12 +51,20 @@ export class RenderNewDiv
   }
 
   deleteTask() {
-    const deleteButton: any = document.querySelectorAll(".delete-button");
+    const deleteButton = document.querySelectorAll(".delete-button");
     for (let i = 0; i < deleteButton.length; i++) {
       deleteButton[i].addEventListener("click", (e: any) => {
-        console.log("deleted");
         e.currentTarget.parentNode.parentNode.remove();
+        this.refreshTaskNumberWhenDelete();
       });
+    }
+  }
+
+  refreshTaskNumberWhenDelete() {
+    let taskNumber = document.querySelectorAll(".data-div .task-number");
+    for (let i = 0; i < taskNumber.length; i++) {
+      taskNumber[i].innerHTML = "";
+      taskNumber[i].innerHTML = `${i + 1}`;
     }
   }
 }

@@ -20,4 +20,5 @@ export interface RenderNewDivInterface {
   createDiv(): void;
   fillDivWithTaskData(): void;
   deleteTask(): void;
+  refreshTaskNumberWhenDelete(): void;
 }
