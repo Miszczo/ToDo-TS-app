@@ -46,12 +46,12 @@ export class RenderNewDiv
           <span class="task-title">task:</span> <p>${dataObject.inputsValues.taskName}</p>
           <span class="task-title">description:</span> <p>${dataObject.inputsValues.taskDescription}</p>
           <span class="task-title">deadline:</span> <p>${dataObject.inputsValues.taskDate}</p>
-          <a href="#" class="tasks-icons edit-button"><i class="fas fa-pencil-alt"></i></a> <a href="#" class="tasks-icons"><i id="delete-button" class="fas fa-trash-alt delete-button"></i></a>`;
+          <a href="#" class="tasks-icons task__finished-button"><i class="fas fa-check"></i></a><a href="#" class="tasks-icons task__edit-button"><i class="fas fa-pencil-alt"></i></a> <a href="#" class="tasks-icons"><i id="delete-button" class="fas fa-trash-alt task__delete-button"></i></a>`;
     this.deleteTask();
   }
 
   deleteTask() {
-    const deleteButton = document.querySelectorAll(".delete-button");
+    const deleteButton = document.querySelectorAll(".task__delete-button");
     for (let i = 0; i < deleteButton.length; i++) {
       deleteButton[i].addEventListener("click", (e: any) => {
         e.currentTarget.parentNode.parentNode.remove();
