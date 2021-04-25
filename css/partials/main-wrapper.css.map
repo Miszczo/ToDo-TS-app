@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "main-wrapper.css",
+	"sources": [
+		"../../sass/partials/main-wrapper.scss"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,aAAa,CAAC;EACZ,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,eAAe,EAAE,aAAa;CAC/B"
+}

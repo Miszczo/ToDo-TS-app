@@ -6,14 +6,13 @@ export class RenderNewDiv
   implements RenderNewDivInterface {
   renderContainer: HTMLDivElement;
   submitButton: HTMLInputElement;
-  // deleteButton: HTMLElement;
   newDataDiv: HTMLDivElement = document.createElement("div") as HTMLDivElement;
 
   constructor() {
     super();
 
     this.renderContainer = document.querySelector(
-      ".tasks-render"
+      ".form-wrapper__tasks-render-container"
     ) as HTMLDivElement;
     this.submitButton = document.getElementById(
       "submit-btn"
@@ -30,17 +29,42 @@ export class RenderNewDiv
       return;
     } else {
       this.createDiv();
+      this.showOnlyLastChildInContainer();
     }
   }
 
-  createDiv() {
+  private createDiv() {
     this.newDataDiv.classList.add("data-div");
     this.newDataDiv.id = `number-${this.renderContainer.childElementCount + 1}`;
     this.renderContainer.appendChild(this.newDataDiv);
+    this.showContainerWhenHasContent();
     this.fillDivWithTaskData();
   }
 
-  fillDivWithTaskData() {
+  private showContainerWhenHasContent() {
+    if (this.renderContainer.children) {
+      this.renderContainer.classList.remove("hide");
+    }
+  }
+
+  private hideContainerWhenEmpty() {
+    if (this.renderContainer.childElementCount === 0) {
+      this.renderContainer.classList.add("hide");
+    }
+  }
+
+  private showOnlyLastChildInContainer() {
+    for (let children of this.renderContainer.children) {
+      if (this.newDataDiv == this.renderContainer.lastChild) {
+        children.classList.add("hide");
+        this.renderContainer.lastElementChild!.classList.remove("hide");
+      } else {
+        this.renderContainer.lastElementChild!.classList.remove("hide");
+      }
+    }
+  }
+
+  private fillDivWithTaskData() {
     const dataObject = new GetInputValues();
     this.newDataDiv.innerHTML += `<p class="task-number">${this.renderContainer.childElementCount}</p>
           <span class="task-title">task:</span> <p>${dataObject.inputsValues.taskName}</p>
@@ -50,17 +74,19 @@ export class RenderNewDiv
     this.deleteTask();
   }
 
-  deleteTask() {
+  private deleteTask() {
     const deleteButton = document.querySelectorAll(".task__delete-button");
     for (let i = 0; i < deleteButton.length; i++) {
       deleteButton[i].addEventListener("click", (e: any) => {
         e.currentTarget.parentNode.parentNode.remove();
         this.refreshTaskNumberWhenDelete();
+        this.hideContainerWhenEmpty();
+        this.showOnlyLastChildInContainer();
       });
     }
   }
 
-  refreshTaskNumberWhenDelete() {
+  private refreshTaskNumberWhenDelete() {
     let taskNumber = document.querySelectorAll(".data-div .task-number");
     for (let i = 0; i < taskNumber.length; i++) {
       taskNumber[i].innerHTML = "";

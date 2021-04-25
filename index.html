@@ -1,45 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily To Do app</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="https://kit.fontawesome.com/ecbfd4882f.js" crossorigin="anonymous"></script>
-  <script type ="module" src="dist/app.js" ></script>
-</head>
-<body>
-  <div class="main-wrapper">
-    <div class="navigation-wrapper">
-      <h1>Daily to do</h1>
-      <nav>
-        <ul>
-          <li><a href="">Add task</a></li>
-          <li><a href="">Show tasks</a></li>
-          <li><a href="">Link 3</a></li>
-          <li><a href="">Finished tasks</a></li>
-        </ul>
-      </nav>  
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daily To Do app</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/ecbfd4882f.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="dist/app.js"></script>
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <!-- navigation -->
+      <div class="navigation-wrapper">
+        <h1>Daily to do</h1>
+        <nav class="navigation-wrapper__nav">
+          <ul class="navigation-wrapper__list">
+            <li><a href="">Add task</a></li>
+            <li><a href="">Show all tasks</a></li>
+            <li><a href="">Finished tasks</a></li>
+          </ul>
+        </nav>
+      </div>
+      <!-- form -->
+      <div class="form-wrapper">
+        <form class="form-wrapper__form">
+          <div class="form-control">
+            <label for="title">Task name</label>
+            <input type="text" id="title" />
+          </div>
+          <div class="form-control">
+            <label for="description">Description</label>
+            <textarea id="description" rows="3"></textarea>
+          </div>
+          <div class="form-control">
+            <label for="start">Task date:</label>
+            <input
+              type="date"
+              id="date"
+              name="trip-start"
+              min="2021-01-01"
+              max="2021-12-31"
+            />
+          </div>
+          <button id="submit-btn" class="form__submit-button" type="submit">
+            ADD TASK
+          </button>
+        </form>
+        <!-- render container -->
+        <div class="form-wrapper__tasks-render-container hide"></div>
+      </div>
     </div>
-    <div class="form-wrapper">
-      <form>
-        <div class="form-control">
-          <label for="title">Task name</label>
-          <input type="text" id="title" />
-        </div>
-        <div class="form-control">
-          <label for="description">Description</label>
-          <textarea id="description" rows="3"></textarea>
-        </div>
-        <div class="form-control">
-          <label for="start">Task date:</label>
-          <input type="date" id="date" name="trip-start" min="2021-01-01" max="2021-12-31">
-        </div>
-        <button id="submit-btn" class="form__submit-button" type="submit">ADD TASK</button>
-      </form>
-    </div>
-    <div class="tasks-render"></div>
-  </div>
-</body>
+  </body>
 </html>
