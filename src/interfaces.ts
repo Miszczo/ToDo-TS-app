@@ -13,8 +13,10 @@ export interface GetInputValuesInterface {
 }
 
 export interface RenderNewDivInterface {
-  renderContainer: HTMLDivElement;
+  singleTaskRenderContainer: HTMLDivElement;
+  allTasksRenderContainer: HTMLDivElement;
   submitButton: HTMLInputElement;
+  newDataDiv: HTMLDivElement;
 
   checkIfTheFieldsAreFilled(): void;
 }

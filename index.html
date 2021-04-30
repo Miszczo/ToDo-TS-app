@@ -19,39 +19,62 @@
         <h1>Daily to do</h1>
         <nav class="navigation-wrapper__nav">
           <ul class="navigation-wrapper__list">
-            <li><a href="">Add task</a></li>
-            <li><a href="">Show all tasks</a></li>
-            <li><a href="">Finished tasks</a></li>
+            <li class="nav__section-button-selector" id="add-task-section">
+              <a href="">Add task</a>
+            </li>
+            <li class="nav__section-button-selector" id="all-tasks-section">
+              <a href="">Show all tasks</a>
+            </li>
+            <li
+              class="nav__section-button-selector"
+              id="finished-tasks-section"
+            >
+              <a href="">Finished tasks</a>
+            </li>
           </ul>
         </nav>
       </div>
-      <!-- form -->
-      <div class="form-wrapper">
-        <form class="form-wrapper__form">
-          <div class="form-control">
-            <label for="title">Task name</label>
-            <input type="text" id="title" />
+      <!-- sections -->
+      <div class="main-wrapper__sections">
+        <div class="add-task-section page-selector" id="add-task-section">
+          <form class="add-task__form">
+            <div class="form-control">
+              <label for="title">Task name</label>
+              <input type="text" id="title" />
+            </div>
+            <div class="form-control">
+              <label for="description">Description</label>
+              <textarea id="description" rows="3"></textarea>
+            </div>
+            <div class="form-control">
+              <label for="start">Task date:</label>
+              <input
+                type="date"
+                id="date"
+                name="trip-start"
+                min="2021-01-01"
+                max="2021-12-31"
+              />
+            </div>
+            <button id="submit-btn" class="form__submit-button" type="submit">
+              ADD TASK
+            </button>
+          </form>
+          <!-- render container -->
+          <div class="render-container-wrapper">
+            <h1>latest task</h1>
+            <div class="add-task__tasks-render-container hide"></div>
           </div>
-          <div class="form-control">
-            <label for="description">Description</label>
-            <textarea id="description" rows="3"></textarea>
-          </div>
-          <div class="form-control">
-            <label for="start">Task date:</label>
-            <input
-              type="date"
-              id="date"
-              name="trip-start"
-              min="2021-01-01"
-              max="2021-12-31"
-            />
-          </div>
-          <button id="submit-btn" class="form__submit-button" type="submit">
-            ADD TASK
-          </button>
-        </form>
-        <!-- render container -->
-        <div class="form-wrapper__tasks-render-container hide"></div>
+        </div>
+
+        <div class="all-tasks-section page-selector hide" id="all-tasks-section">
+          <div class="all-tasks-section__tasks-render-container"></div>
+        </div>
+
+        <div
+          class="finished-tasks-section page-selector hide"
+          id="finished-tasks-section"
+        ></div>
       </div>
     </div>
   </body>

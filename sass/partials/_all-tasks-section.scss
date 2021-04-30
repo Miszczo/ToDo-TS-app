@@ -1,0 +1,16 @@
+.all-tasks-section {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-content: space-between;
+  min-width: 900px;
+  width: auto;
+  margin: 80px 20px 10px 40px;
+}
+.all-tasks-section__tasks-render-container {
+  max-width: 350px;
+  width: 100%;
+  border: 1px rgb(172, 172, 172) solid;
+  margin: 0px 10px 0 0px;
+  background: #ff0062;
+}

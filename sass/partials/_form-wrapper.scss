@@ -1,4 +1,4 @@
-.form-wrapper {
+.add-task-section {
   display: flex;
   flex-direction: row;
   align-self: center;
@@ -7,7 +7,7 @@
   width: auto;
   margin: 80px 20px 10px 40px;
 
-  .form-wrapper__form {
+  .add-task__form {
     display: flex;
     flex-direction: column;
     margin-right: 20px;
@@ -71,9 +71,17 @@
 }
 
 // render container
-.form-wrapper__tasks-render-container {
-  width: 350px;
+.render-container-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 355px;
+}
+.add-task__tasks-render-container {
+  max-width: inherit;
+  width: 100%;
   border: 1px rgb(172, 172, 172) solid;
   margin: 0px 10px 0 0px;
   background: #ff0062;
 }
+
