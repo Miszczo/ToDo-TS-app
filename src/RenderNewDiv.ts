@@ -37,7 +37,6 @@ export class RenderNewDiv
     } else {
       this.createDiv();
       this.showOnlyLastChildInContainer();
-     
     }
   }
 
@@ -61,18 +60,28 @@ export class RenderNewDiv
     }
   }
 
+  // private showOnlyLastChildInContainer() {
+  //   for (let children of this.singleTaskRenderContainer.children) {
+  //     if (this.newDataDiv == this.singleTaskRenderContainer.lastChild) {
+  //       children.classList.add("hide");
+  //       this.singleTaskRenderContainer.lastElementChild!.classList.remove(
+  //         "hide"
+  //       );
+  //     } else {
+  //       this.singleTaskRenderContainer.lastElementChild!.classList.remove(
+  //         "hide"
+  //       );
+  //     }
+  //   }
+  // }
   private showOnlyLastChildInContainer() {
     for (let children of this.singleTaskRenderContainer.children) {
-      if (this.newDataDiv == this.singleTaskRenderContainer.lastChild) {
+      if (this.singleTaskRenderContainer.lastChild) {
         children.classList.add("hide");
         this.singleTaskRenderContainer.lastElementChild!.classList.remove(
           "hide"
         );
-      } else {
-        this.singleTaskRenderContainer.lastElementChild!.classList.remove(
-          "hide"
-        );
-      }
+      } 
     }
   }
 
