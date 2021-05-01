@@ -15,14 +15,11 @@ export class RenderNewDiv
       ".add-task__tasks-render-container"
     ) as HTMLDivElement;
     this.allTasksRenderContainer = document.querySelector(
-      ".all-tasks-section__tasks-render-container"
+      ".all-tasks-section"
     ) as HTMLDivElement;
     this.submitButton = document.getElementById(
       "submit-btn"
     )! as HTMLInputElement;
-    this.allTasksRenderContainer = document.querySelector(
-      ".all-tasks-section"
-    ) as HTMLDivElement;
   }
 
   checkIfTheFieldsAreFilled() {
@@ -40,17 +37,19 @@ export class RenderNewDiv
   }
 
   private createDiv() {
-    const newDataDiv = document.createElement("div") as HTMLDivElement;
-    newDataDiv.classList.add("data-div");
-    newDataDiv.id = `number-${
-      this.singleTaskRenderContainer.childElementCount + 1
-    }`;
-    this.singleTaskRenderContainer.appendChild(newDataDiv);
+    const taskContainersArray = [this.allTasksRenderContainer, this.singleTaskRenderContainer];
+    for(let container of taskContainersArray){
+      const newDataDiv = document.createElement("div");
+      newDataDiv.classList.add("data-div");
+      newDataDiv.id = `number-${this.singleTaskRenderContainer.childElementCount +1}`;
+      container.appendChild(newDataDiv);
+    }
     this.showContainerWhenHasContent();
     this.fillDivWithTaskData();
     this.deleteTask();
   }
 
+ 
   private showContainerWhenHasContent() {
     if (this.singleTaskRenderContainer.children) {
       this.singleTaskRenderContainer.classList.remove("hide");

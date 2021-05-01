@@ -184,20 +184,15 @@ h1 {
 .all-tasks-section {
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
-  -ms-flex-item-align: center;
-      align-self: center;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
-  min-width: 900px;
-  width: auto;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   margin: 80px 20px 10px 40px;
 }
 
 .all-tasks-section__tasks-render-container {
   max-width: 350px;
   width: 100%;
+  height: 350px;
   border: 1px #acacac solid;
   margin: 0px 10px 0 0px;
   background: #ff0062;
