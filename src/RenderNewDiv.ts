@@ -7,7 +7,6 @@ export class RenderNewDiv
   singleTaskRenderContainer: HTMLDivElement;
   allTasksRenderContainer: HTMLDivElement;
   submitButton: HTMLInputElement;
-  // newDataDiv: HTMLDivElement = document.createElement("div") as HTMLDivElement;
 
   constructor() {
     super();
@@ -75,14 +74,6 @@ export class RenderNewDiv
     }
   }
 
-  // private fillDivWithTaskData() {
-  //   const dataObject = new GetInputValues();
-  //   this.newDataDiv.innerHTML += `<p class="task-number">${this.singleTaskRenderContainer.childElementCount}</p>
-  //         <span class="task-title">task:</span> <p>${dataObject.inputsValues.taskName}</p>
-  //         <span class="task-title">description:</span> <p>${dataObject.inputsValues.taskDescription}</p>
-  //         <span class="task-title">deadline:</span> <p>${dataObject.inputsValues.taskDate}</p>
-  //         <a href="#" class="tasks-icons task__finished-button"><i class="fas fa-check"></i></a><a href="#" class="tasks-icons task__edit-button"><i class="fas fa-pencil-alt"></i></a> <a href="#" class="tasks-icons"><i id="delete-button" class="fas fa-trash-alt task__delete-button"></i></a>`;
-  // }
   private fillDivWithTaskData() {
     const dataObject = new GetInputValues();
     for (let children of this.singleTaskRenderContainer.children) {
