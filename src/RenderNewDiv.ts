@@ -7,7 +7,7 @@ export class RenderNewDiv
   singleTaskRenderContainer: HTMLDivElement;
   allTasksRenderContainer: HTMLDivElement;
   submitButton: HTMLInputElement;
-  newDataDiv: HTMLDivElement = document.createElement("div") as HTMLDivElement;
+  // newDataDiv: HTMLDivElement = document.createElement("div") as HTMLDivElement;
 
   constructor() {
     super();
@@ -41,11 +41,15 @@ export class RenderNewDiv
   }
 
   private createDiv() {
-    this.newDataDiv.classList.add("data-div");
-    this.newDataDiv.id = `number-${ this.singleTaskRenderContainer.childElementCount + 1}`;
-    this.singleTaskRenderContainer.appendChild(this.newDataDiv);
+    const newDataDiv = document.createElement("div") as HTMLDivElement;
+    newDataDiv.classList.add("data-div");
+    newDataDiv.id = `number-${
+      this.singleTaskRenderContainer.childElementCount + 1
+    }`;
+    this.singleTaskRenderContainer.appendChild(newDataDiv);
     this.showContainerWhenHasContent();
     this.fillDivWithTaskData();
+    this.deleteTask();
   }
 
   private showContainerWhenHasContent() {
@@ -60,20 +64,6 @@ export class RenderNewDiv
     }
   }
 
-  // private showOnlyLastChildInContainer() {
-  //   for (let children of this.singleTaskRenderContainer.children) {
-  //     if (this.newDataDiv == this.singleTaskRenderContainer.lastChild) {
-  //       children.classList.add("hide");
-  //       this.singleTaskRenderContainer.lastElementChild!.classList.remove(
-  //         "hide"
-  //       );
-  //     } else {
-  //       this.singleTaskRenderContainer.lastElementChild!.classList.remove(
-  //         "hide"
-  //       );
-  //     }
-  //   }
-  // }
   private showOnlyLastChildInContainer() {
     for (let children of this.singleTaskRenderContainer.children) {
       if (this.singleTaskRenderContainer.lastChild) {
@@ -81,18 +71,29 @@ export class RenderNewDiv
         this.singleTaskRenderContainer.lastElementChild!.classList.remove(
           "hide"
         );
-      } 
+      }
     }
   }
 
+  // private fillDivWithTaskData() {
+  //   const dataObject = new GetInputValues();
+  //   this.newDataDiv.innerHTML += `<p class="task-number">${this.singleTaskRenderContainer.childElementCount}</p>
+  //         <span class="task-title">task:</span> <p>${dataObject.inputsValues.taskName}</p>
+  //         <span class="task-title">description:</span> <p>${dataObject.inputsValues.taskDescription}</p>
+  //         <span class="task-title">deadline:</span> <p>${dataObject.inputsValues.taskDate}</p>
+  //         <a href="#" class="tasks-icons task__finished-button"><i class="fas fa-check"></i></a><a href="#" class="tasks-icons task__edit-button"><i class="fas fa-pencil-alt"></i></a> <a href="#" class="tasks-icons"><i id="delete-button" class="fas fa-trash-alt task__delete-button"></i></a>`;
+  // }
   private fillDivWithTaskData() {
     const dataObject = new GetInputValues();
-    this.newDataDiv.innerHTML += `<p class="task-number">${this.singleTaskRenderContainer.childElementCount}</p>
+    for (let children of this.singleTaskRenderContainer.children) {
+      if (children == this.singleTaskRenderContainer.lastChild) {
+        children.innerHTML += `<p class="task-number">${this.singleTaskRenderContainer.childElementCount}</p>
           <span class="task-title">task:</span> <p>${dataObject.inputsValues.taskName}</p>
           <span class="task-title">description:</span> <p>${dataObject.inputsValues.taskDescription}</p>
           <span class="task-title">deadline:</span> <p>${dataObject.inputsValues.taskDate}</p>
           <a href="#" class="tasks-icons task__finished-button"><i class="fas fa-check"></i></a><a href="#" class="tasks-icons task__edit-button"><i class="fas fa-pencil-alt"></i></a> <a href="#" class="tasks-icons"><i id="delete-button" class="fas fa-trash-alt task__delete-button"></i></a>`;
-    this.deleteTask();
+      }
+    }
   }
 
   private deleteTask() {
