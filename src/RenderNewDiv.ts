@@ -37,11 +37,16 @@ export class RenderNewDiv
   }
 
   private createDiv() {
-    const taskContainersArray = [this.allTasksRenderContainer, this.singleTaskRenderContainer];
-    for(let container of taskContainersArray){
+    const taskContainersArray = [
+      this.allTasksRenderContainer,
+      this.singleTaskRenderContainer,
+    ];
+    for (let container of taskContainersArray) {
       const newDataDiv = document.createElement("div");
       newDataDiv.classList.add("data-div");
-      newDataDiv.id = `number-${this.singleTaskRenderContainer.childElementCount +1}`;
+      newDataDiv.id = `number-${
+        this.singleTaskRenderContainer.childElementCount + 1
+      }`;
       container.appendChild(newDataDiv);
     }
     this.showContainerWhenHasContent();
@@ -49,7 +54,6 @@ export class RenderNewDiv
     this.deleteTask();
   }
 
- 
   private showContainerWhenHasContent() {
     if (this.singleTaskRenderContainer.children) {
       this.singleTaskRenderContainer.classList.remove("hide");
@@ -73,16 +77,29 @@ export class RenderNewDiv
     }
   }
 
+  // private fillDivWithTaskData() {
+  //   const dataObject = new GetInputValues();
+  //   for (let children of this.singleTaskRenderContainer.children) {
+  //     if (children == this.singleTaskRenderContainer.lastChild) {
+  //       children.innerHTML += `<p class="task-number">${this.singleTaskRenderContainer.childElementCount}</p>
+  //         <span class="task-title">task:</span> <p>${dataObject.inputsValues.taskName}</p>
+  //         <span class="task-title">description:</span> <p>${dataObject.inputsValues.taskDescription}</p>
+  //         <span class="task-title">deadline:</span> <p>${dataObject.inputsValues.taskDate}</p>
+  //         <a href="#" class="tasks-icons task__finished-button"><i class="fas fa-check"></i></a><a href="#" class="tasks-icons task__edit-button"><i class="fas fa-pencil-alt"></i></a> <a href="#" class="tasks-icons"><i id="delete-button" class="fas fa-trash-alt task__delete-button"></i></a>`;
+  //     }
+  //   }
+  // }
   private fillDivWithTaskData() {
     const dataObject = new GetInputValues();
-    for (let children of this.singleTaskRenderContainer.children) {
-      if (children == this.singleTaskRenderContainer.lastChild) {
-        children.innerHTML += `<p class="task-number">${this.singleTaskRenderContainer.childElementCount}</p>
-          <span class="task-title">task:</span> <p>${dataObject.inputsValues.taskName}</p>
-          <span class="task-title">description:</span> <p>${dataObject.inputsValues.taskDescription}</p>
-          <span class="task-title">deadline:</span> <p>${dataObject.inputsValues.taskDate}</p>
-          <a href="#" class="tasks-icons task__finished-button"><i class="fas fa-check"></i></a><a href="#" class="tasks-icons task__edit-button"><i class="fas fa-pencil-alt"></i></a> <a href="#" class="tasks-icons"><i id="delete-button" class="fas fa-trash-alt task__delete-button"></i></a>`;
-      }
+    const taskContainersArray = [this.allTasksRenderContainer, this.singleTaskRenderContainer];
+
+    for(let arr of taskContainersArray){
+      const arrayWithLastChilds = arr.lastChild as HTMLDivElement;
+      arrayWithLastChilds.innerHTML += `<p class="task-number">${this.singleTaskRenderContainer.childElementCount}</p>
+      <span class="task-title">task:</span> <p>${dataObject.inputsValues.taskName}</p>
+      <span class="task-title">description:</span> <p>${dataObject.inputsValues.taskDescription}</p>
+      <span class="task-title">deadline:</span> <p>${dataObject.inputsValues.taskDate}</p>
+      <a href="#" class="tasks-icons task__finished-button"><i class="fas fa-check"></i></a><a href="#" class="tasks-icons task__edit-button"><i class="fas fa-pencil-alt"></i></a> <a href="#" class="tasks-icons"><i id="delete-button" class="fas fa-trash-alt task__delete-button"></i></a>`;
     }
   }
 
