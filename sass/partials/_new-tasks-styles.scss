@@ -1,8 +1,25 @@
+.data-div-wrapper {
+  max-width: 320px;
+  max-height: 320px;
+  width: 100%;
+  border: 1px rgb(172, 172, 172) solid;
+  margin: 0px 10px 0 0px;
+  background: #ff0062;
+}
+
 .data-div {
   overflow-wrap: break-word;
   margin: 20px;
-  padding: 10px;
-  background-color: white;
+  padding: 30px;
+  background-color: #ff0062;
+  color: white;
+  font-weight: bold;
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  
+  outline: 4px solid white;
+  outline-offset: -15px;
 }
 
 .data-div p {
@@ -21,7 +38,13 @@
     color: black;
   }
   & :active {
-    color: #ff0062;
+    color: white;
   }
   margin: 15px 10px 5px 0;
+}
+
+@media only screen and (max-width: 420px) {
+  // .data-div {
+  //   max-width: 200px;
+  // }
 }

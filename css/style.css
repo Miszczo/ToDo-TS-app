@@ -2,11 +2,31 @@
   display: none !important;
 }
 
+.show {
+  display: block !important;
+}
+
+.data-div-wrapper {
+  max-width: 320px;
+  max-height: 320px;
+  width: 100%;
+  border: 1px #acacac solid;
+  margin: 0px 10px 0 0px;
+  background: #ff0062;
+}
+
 .data-div {
   overflow-wrap: break-word;
   margin: 20px;
-  padding: 10px;
-  background-color: white;
+  padding: 30px;
+  background-color: #ff0062;
+  color: white;
+  font-weight: bold;
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  outline: 4px solid white;
+  outline-offset: -15px;
 }
 
 .data-div p {
@@ -29,7 +49,7 @@
 }
 
 .tasks-icons :active {
-  color: #ff0062;
+  color: white;
 }
 
 .navigation-wrapper {
@@ -42,6 +62,10 @@
   margin-top: 50px;
 }
 
+.navigation-wrapper h1 {
+  animation: 0.5s ease-out 0s 1 slideInFromLeft;
+}
+
 .navigation-wrapper__list {
   display: -ms-flexbox;
   display: flex;
@@ -50,12 +74,79 @@
   -ms-flex-pack: distribute;
       justify-content: space-around;
   padding: 0;
+  margin: 0;
   list-style-type: none;
+  animation: 0.4s ease-out 0s 1 slideInFromRight;
 }
 
-.navigation-wrapper__list li {
-  padding: 0 0 10px 0;
-  margin-left: 20px;
+.nav__section-button-selector {
+  background-color: #ff0062;
+  padding: 15px;
+  margin-right: 20px;
+  border: none;
+}
+
+.nav__section-button-selector:hover {
+  transition: transform 0.1s;
+  transform: scale(1.1);
+  text-decoration: none;
+}
+
+.nav__section-button-selector:active {
+  transition: transform 0.1s;
+  transform: translateY(2px);
+  outline: 0;
+  border: none;
+}
+
+.nav__section-button-selector:focus {
+  outline: 0;
+  border: none;
+}
+
+.nav__section-button-selector a {
+  color: whitesmoke;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hamburger-menu__button {
+  display: none;
+  font-size: 28px;
+}
+
+@media only screen and (max-width: 900px) {
+  .navigation-wrapper {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .navigation-wrapper {
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .navigation-wrapper__list {
+    -ms-flex-direction: column;
+        flex-direction: column;
+    margin: 0px;
+    display: none;
+    position: absolute;
+    animation: none;
+  }
+  .nav__section-button-selector {
+    margin-bottom: 10px;
+  }
+  .hamburger-menu__button {
+    display: inherit;
+    font-size: 28px;
+    margin-right: 50px;
+  }
 }
 
 .main-wrapper__sections {
@@ -76,62 +167,75 @@
       align-self: center;
   -ms-flex-pack: justify;
       justify-content: space-between;
-  min-width: 900px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   width: auto;
   margin: 80px 20px 10px 40px;
+  animation: fadein 1s;
 }
 
-.add-task-section .add-task__form {
+.add-task__form {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
       flex-direction: column;
   margin-right: 20px;
+  width: 400px;
 }
 
-.add-task-section label,
-.add-task-section input,
-.add-task-section textarea {
-  display: block;
-  margin: 0.5rem 0;
+label,
+input,
+textarea {
+  margin-top: 15px;
 }
 
-.add-task-section label {
+label {
   font-weight: bold;
 }
 
-.add-task-section input,
-.add-task-section textarea {
+input,
+textarea {
   font: inherit;
   padding: 0.2rem 0.4rem;
   width: 100%;
-  max-width: 30rem;
+  max-width: 200px;
   border: 1px solid #ccc;
 }
 
-.add-task-section input:focus,
-.add-task-section textarea:focus {
+input:focus,
+textarea:focus {
   outline: none;
   background: #fff5f9;
 }
 
-.add-task-section button {
+#date:hover {
+  cursor: pointer;
+}
+
+button {
   font: inherit;
   background: #ff0062;
   border: 1px solid #ff0062;
   cursor: pointer;
   color: white;
-  padding: 0.75rem 1rem;
+  font-weight: bold;
+  padding: 15px;
+  margin-top: 10px;
+  max-width: 200px;
+  width: auto;
 }
 
-.add-task-section button:focus {
+button:focus {
   outline: none;
 }
 
-.add-task-section button:hover,
-.add-task-section button:active {
+button:hover {
   background: #a80041;
   border-color: #a80041;
+}
+
+button:active {
+  transform: translateY(2px);
 }
 
 .form-control {
@@ -139,6 +243,7 @@
   display: flex;
   -ms-flex-direction: column;
       flex-direction: column;
+  max-width: 200px;
 }
 
 .myInput {
@@ -163,6 +268,23 @@
   border: 1px #acacac solid;
   margin: 0px 10px 0 0px;
   background: #ff0062;
+}
+
+@media only screen and (max-width: 900px) {
+  .add-task-section {
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+  }
+  .add-task__form {
+    width: 200px;
+  }
+  .render-container-wrapper {
+    margin-top: 50px;
+  }
 }
 
 * {
@@ -196,5 +318,32 @@ h1 {
   border: 1px #acacac solid;
   margin: 0px 10px 0 0px;
   background: #ff0062;
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 /*# sourceMappingURL=style.css.map */

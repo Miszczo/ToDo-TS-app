@@ -85,12 +85,13 @@ export class RenderNewDiv
     ];
 
     for (let arr of taskContainersArray) {
+      console.log(arr);
       const arrayWithLastChilds = arr.lastChild as HTMLDivElement;
       arrayWithLastChilds.innerHTML += `<p class="task-number">${this.singleTaskRenderContainer.childElementCount}</p>
       <span class="task-title">task:</span> <p>${dataObject.inputsValues.taskName}</p>
       <span class="task-title">description:</span> <p>${dataObject.inputsValues.taskDescription}</p>
       <span class="task-title">deadline:</span> <p>${dataObject.inputsValues.taskDate}</p>
-      <a href="#" class="tasks-icons task__finished-button"><i class="fas fa-check"></i></a><a href="#" class="tasks-icons task__edit-button"><i class="fas fa-pencil-alt"></i></a> <a href="#" class="tasks-icons"><i id="delete-button" class="fas fa-trash-alt task__delete-button"></i></a>`;
+      <a href="#" class="tasks-icons task__finished-button"><i class="fas fa-check"></i></a><a href="#" class="tasks-icons task__edit-button"><i class="fas fa-pencil-alt"></i></a> <a href="#" class="tasks-icons"><i id="number-${this.singleTaskRenderContainer.childElementCount}" class="fas fa-trash-alt task__delete-button"></i></a>`;
     }
   }
 

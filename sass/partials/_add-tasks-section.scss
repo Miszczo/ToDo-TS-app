@@ -3,67 +3,77 @@
   flex-direction: row;
   align-self: center;
   justify-content: space-between;
-  min-width: 900px;
+  flex-wrap: wrap;
   width: auto;
   margin: 80px 20px 10px 40px;
-
-  .add-task__form {
-    display: flex;
-    flex-direction: column;
-    margin-right: 20px;
-  }
-
-  label,
-  input,
-  textarea {
-    display: block;
-    margin: 0.5rem 0;
-  }
-
-  label {
-    font-weight: bold;
-  }
-
-  input,
-  textarea {
-    font: inherit;
-    padding: 0.2rem 0.4rem;
-    width: 100%;
-    max-width: 30rem;
-    border: 1px solid #ccc;
-  }
-
-  input:focus,
-  textarea:focus {
-    outline: none;
-    background: #fff5f9;
-  }
-
-  button {
-    font: inherit;
-    background: #ff0062;
-    border: 1px solid #ff0062;
-    cursor: pointer;
-    color: white;
-    padding: 0.75rem 1rem;
-  }
-
-  button:focus {
-    outline: none;
-  }
-
-  button:hover,
-  button:active {
-    background: #a80041;
-    border-color: #a80041;
-  }
+  animation: fadein 1s;
+}
+.add-task__form {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  width: 400px;
 }
 
+label,
+input,
+textarea {
+  margin-top: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input,
+textarea {
+  font: inherit;
+  padding: 0.2rem 0.4rem;
+  width: 100%;
+  max-width: 200px;
+  border: 1px solid #ccc;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  background: #fff5f9;
+}
+#date:hover {
+  cursor: pointer;
+}
+
+button {
+  font: inherit;
+  background: #ff0062;
+  border: 1px solid #ff0062;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  padding: 15px;
+  margin-top: 10px;
+  max-width: 200px;
+  width: auto;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:hover {
+  background: #a80041;
+  border-color: #a80041;
+}
+button:active {
+  transform: translateY(2px);
+}
+
+// inputs styles
 .form-control {
   display: flex;
   flex-direction: column;
+  max-width: 200px;
 }
-// inputs styles
 .myInput {
   width: 500px;
   height: 400px;
@@ -83,5 +93,19 @@
   border: 1px rgb(172, 172, 172) solid;
   margin: 0px 10px 0 0px;
   background: #ff0062;
+
 }
 
+@media only screen and (max-width: 900px) {
+  .add-task-section {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .add-task__form {
+    width: 200px;
+  }
+  .render-container-wrapper {
+    margin-top: 50px;
+  }
+}
